@@ -5,7 +5,7 @@ As a part of the mandatory Data Analyst Nanodegree curriculum. A data visualizat
 a README.md file that includes four sections...
 
 # Summary
-- in no more than 4 sentences, briefly introduce your data visualization and add any context that can help readers understand it
+
 The data set has been extensively used by data analysts to build predictive models on the survivability of passengers. The visualization intends to help the reader analyze the distibution of passengers across key variables like gender, age, and passenger class. The interactivty feature around double clicking on passengers travelling together (having the same ticket number) helps the reader identify the relations between the co-travellers (parent-child, spouse, siblings, matrons, etc) and make assumptions on why some people survived and others didn't.
 
 # Design - explain any design choices you made including changes to the visualization after collecting feedback
