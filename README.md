@@ -1,6 +1,11 @@
 # Data Visualization - Titanic - Relationship Explorer (D3.js)
 Part of the mandatory Data Analyst Nanodegree curriculum. A data visualization project on D3.js using the Titanic Data Set
 
+# Directory Structure
+-  /Readme.md - this file
+-  /index_1.html - first version (sketch)
+-  /index.html - final version
+
 # Summary
 
 The data set has been extensively used by data analysts to build predictive models on the survivability of passengers. The visualization intends to help the reader analyze the distibution of passengers across key variables like gender, age, and passenger class. The interactivty feature around double clicking on passengers travelling together (having the same ticket number) helps the reader identify the relations between the co-travellers (parent-child, spouse, siblings, matrons, etc) and make assumptions on why some people survived and others didn't. The visualization can be veiwed [here](http://bl.ocks.org/aragorn87/raw/03e01fd46d488015ba072fda0476690b/)
