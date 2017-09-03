@@ -1,4 +1,4 @@
-# Data Visualization - Titanic Dataset - Relationship Explorer - D3.js
+# Data Visualization - Titanic - Relationship Explorer (D3.js)
 Part of the mandatory Data Analyst Nanodegree curriculum. A data visualization project on D3.js using the Titanic Data Set
 
 # Summary
@@ -12,24 +12,24 @@ The intention of the visual is not to help the reader calculate percentages. Seg
 One of the key criteria that might have governed the survivability of passengers is whether the passenger was travelling alone or with co-travellers. Also, who were the co-travellers? Were they friends or family? Parents or siblings? The key premise of this logic is to check if there were any emotional strings present between a group of passengers that might have led to some sort of cohesion (which might have led to the group surviving as a whole or choosing to stay together till the end of their lives)
 
 Some of the key visual encodings:
-> Pixel representation of passengers
-> Age denoted by pixel size
-> Color denotes whether a passenger survived or not
-> Grouping genders together
-> Grouping passengers travelling in the same class together
-> Interactivity - hover over a passenger to check if s/he was travelling solo or with a group (based on ticket number)
-> Interactivity - click on a passenger to check who were the co-travellers (based on name, gender, and age one can deduce almost accurate relationship with the selected passenger)
+-  Pixel representation of passengers
+-  Age denoted by pixel size
+-  Color denotes whether a passenger survived or not
+-  Grouping genders together
+-  Grouping passengers travelling in the same class together
+-  Interactivity - hover over a passenger to check if s/he was travelling solo or with a group (based on ticket number)
+-  Interactivity - click on a passenger to check who were the co-travellers (based on name, gender, and age one can deduce almost accurate relationship with the selected passenger)
 
 Some of the feedback receieved from reviewers:
-> Percentages are hard to calculate: The intent was never to help a reader calculate percentages. Therefore added a text above the visual to define the intended use of the visual
-> Difficult to revisit the passenger: Earlier versions did not have the functionality where the clicked on boxes would remain highlighted. Added the functionality to address the issue in a limited capacity
-> What is the purpose of the textbox: Added an explainer text to justify the use of a textbox
+-  Percentages are hard to calculate: The intent was never to help a reader calculate percentages. Therefore added a text above the visual to define the intended use of the visual
+-  Difficult to revisit the passenger: Earlier versions did not have the functionality where the clicked on boxes would remain highlighted. Added the functionality to address the issue in a limited capacity
+-  What is the purpose of the textbox: Added an explainer text to justify the use of a textbox
 
 # Feedback
 
 Feedback#1:
->I would recommend using the legend to filter under 18s rather than changing square size as a visual encoding. While it's not confusing it does distort the other feature dimension (percentage of deaths versus survivors for each gender/class subset).
->The "clicking on square to reveal more passengers" is not very effective because you can't easily 'return' to a particular data point easily without relying on some guessing. You're almost better off just having a list of the passengers on the screen and colour coding the text to show gender, age and survival status.
+>  -  I would recommend using the legend to filter under 18s rather than changing square size as a visual encoding. While it's not confusing it does distort the other feature dimension (percentage of deaths versus survivors for each gender/class subset).
+>  -  The "clicking on square to reveal more passengers" is not very effective because you can't easily 'return' to a particular data point easily without relying on some guessing. You're almost better off just having a list of the passengers on the screen and colour coding the text to show gender, age and survival status.
 
 Feedback#2:
 >What do you notice in the visualization? 
