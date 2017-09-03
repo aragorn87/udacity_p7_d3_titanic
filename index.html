@@ -13,7 +13,8 @@
 	  stroke-width: 3
 	  stroke: black }
     </style>
-    <script type="text/javascript">  
+    <script type="text/javascript"> 
+		//function for finding passengers travelling on the same ticket number
 		function select_tickets(data){
 										var nested = d3.nest()
 														.key(function(d){
@@ -36,6 +37,7 @@
 									};
 			
         function draw(data) {
+							//initializing variables (mainly around position of pixels)
 							"use strict";
 							var clicked=0;
 					
@@ -92,7 +94,7 @@
 											.attr("fill", "red");
 							svg.selectAll("rect")
 								.data(data.sort(function(a,b){
-																return (b["Survived"] - a["Survived"])||(b["Age"] - a["Age"]);
+																return (b["Survived"] - a["Survived"])||(b["Age"] - a["Age"]); //sorting on the basis of survived column
 															}
 												)
 										)
@@ -100,7 +102,7 @@
 								.append("rect")
 								.attr("width", function(d){
 															if (d["Age"] >=18){
-																				return 10;
+																				return 10;   //Age governs the pixel size i.e. width and height
 																				}
 															else{
 																return 5;
@@ -116,6 +118,7 @@
 																}
 															}
 									)
+								//appending all information which would be required for displaying details of passengers clicked on
 								.attr("class", function(d){
 															return "rect P" + d["PassengerId"];
 														}
@@ -144,6 +147,7 @@
 															return d["Survived"];
 														}
 									)
+								//an interative function to calculate the position of x of a new rect. offset of required as centering needs to be done to account for differences in pixel sizes of adults vs children
 								.attr("x", function(d){
 															if (d["Age"] >=18){
 																				offset = 0;
@@ -221,7 +225,7 @@
 																};
 													}
 									)
-									
+								//same as x	
 								.attr("y", function(d){
 														if (d["Age"] >=18) {
 																			offset = 0;
@@ -320,6 +324,7 @@
 																};
 														}
 									)
+								//intended behaviour: if not clicked on already, dim all other pixels, enlarge the passenger in focus along with the other passengers travelling on the same ticket number; if already clicked on a passenger, do nothing
 								.on("mouseenter", function(){
 															if (clicked===1){
 																			}
@@ -341,6 +346,7 @@
 																};
 															}
 									)
+								//intended behaviour: if not clicked on a passenger - reset all pixels; if clicked on then do nothing
 								.on("mouseleave", function(){
 															if (clicked===1){
 																			}
@@ -360,6 +366,7 @@
 																}
 															}
 									)
+								//intended behaviour: expand the passengers travelling together while dimming everything else; reclick to rest the visual; collate all details and refresh the textarea
 								.on("click", function(){
 														var sstt="Selected Passenger: \n";
 														var i = 1;
@@ -399,7 +406,7 @@
 															};
 														}
 									);
-									
+							//aesthetic elements		
 							var line_divider = d3.select("svg").append("line")	
 													.attr("x1", 440)
 													.attr("y1", 0)
