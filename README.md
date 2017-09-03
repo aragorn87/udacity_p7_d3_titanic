@@ -1,11 +1,11 @@
-# udacity_p7_d3_titanic
+# Data Visualization - Titanic Dataset - Relationship Explorer - D3.js
 Part of the mandatory Data Analyst Nanodegree curriculum. A data visualization project on D3.js using the Titanic Data Set
 
 # Summary
 
-The data set has been extensively used by data analysts to build predictive models on the survivability of passengers. The visualization intends to help the reader analyze the distibution of passengers across key variables like gender, age, and passenger class. The interactivty feature around double clicking on passengers travelling together (having the same ticket number) helps the reader identify the relations between the co-travellers (parent-child, spouse, siblings, matrons, etc) and make assumptions on why some people survived and others didn't.
+The data set has been extensively used by data analysts to build predictive models on the survivability of passengers. The visualization intends to help the reader analyze the distibution of passengers across key variables like gender, age, and passenger class. The interactivty feature around double clicking on passengers travelling together (having the same ticket number) helps the reader identify the relations between the co-travellers (parent-child, spouse, siblings, matrons, etc) and make assumptions on why some people survived and others didn't. The visualization can be veiwed here
 
-# Design - explain any design choices you made including changes to the visualization after collecting feedback
+# Design
 
 The intention of the visual is not to help the reader calculate percentages. Segmentation into genders and passenger classes should help one to get a sense of what the key metrics were. Size of the pixels further gives the information around the age of passengers.
 
@@ -25,7 +25,7 @@ Some of the feedback receieved from reviewers:
 > Difficult to revisit the passenger: Earlier versions did not have the functionality where the clicked on boxes would remain highlighted. Added the functionality to address the issue in a limited capacity
 > What is the purpose of the textbox: Added an explainer text to justify the use of a textbox
 
-# Feedback - include all feedback you received from others on your visualization from the first sketch to the final visualization
+# Feedback
 
 Feedback#1:
 >I would recommend using the legend to filter under 18s rather than changing square size as a visual encoding. While it's not confusing it does distort the other feature dimension (percentage of deaths versus survivors for each gender/class subset).
