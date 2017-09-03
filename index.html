@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+	  h2 {
+        color: black;
+        text-align: left;
+      }
+	  rect {
+	  opacity:0.7
+	  stroke-width: 3
+	  stroke: black }
+    </style>
+    <script type="text/javascript">  
+		function select_tickets(data){
+										var nested = d3.nest()
+														.key(function(d){
+																		return d["Ticket"];
+																		}
+															)
+														.rollup(function(dd){
+																			var subset = d3.set()
+																			dd.forEach(function(e){
+																									subset.add(e["PassengerId"]);
+																									}
+																						);
+																			return{
+																					"subset": subset.values()
+																					};
+																			}
+																)
+														.map(data);
+										return nested;
+									};
+			
+        function draw(data) {
+							"use strict";
+							var clicked=0;
+					
+							var female_x_1=29;
+							var male_x_1=50;
+							var female_y_1=50;
+							var male_y_1 = 50;
+		
+							var female_x_2=29;
+							var male_x_2=50;
+							var female_y_2=150;
+							var male_y_2 = 150;
+							
+							var female_x_3=29;
+							var male_x_3=50;
+							var female_y_3=240;
+							var male_y_3 = 240;
+							
+							var female_xx_1=29;
+							var female_yy_1=50;
+							var male_xx_1=50;
+							var male_yy_1=50;
+							
+							var female_xx_2=29;
+							var male_xx_2=50;
+							var female_yy_2=150;
+							var male_yy_2 = 150;
+							
+							var female_xx_3=29;
+							var male_xx_3=50;
+							var female_yy_3=240;
+							var male_yy_3 = 240;
+							
+							var offset=0;
+							var tic=""
+							
+							var margin = 75,
+
+							width = 1000 - margin,
+							height = 500 - margin;
+
+							var nested = select_tickets(data);
+							var svg = d3.select("body")
+										.append("svg")
+										.attr("width", width + margin)
+										.attr("height", height + margin)
+										.append('g')
+										.attr('class', 'matrix');
+							var text_p1 = d3.select("svg")
+											.append("text")
+											.attr("text", "hello")
+											.attr("x", 440)
+											.attr("y", 0)
+											.attr("fill", "red");
+							svg.selectAll("rect")
+								.data(data.sort(function(a,b){
+																return (b["Survived"] - a["Survived"])||(b["Age"] - a["Age"]);
+															}
+												)
+										)
+								.enter()
+								.append("rect")
+								.attr("width", function(d){
+															if (d["Age"] >=18){
+																				return 10;
+																				}
+															else{
+																return 5;
+																}
+														}
+									)
+								.attr("height", function(d){
+															if (d["Age"] >=18){
+																				return 10;
+																			}
+															else{
+																return 5;
+																}
+															}
+									)
+								.attr("class", function(d){
+															return "rect P" + d["PassengerId"];
+														}
+									)
+								.attr("PassengerId", function(d){
+																return d["PassengerId"];
+																}
+									)
+								.attr("Ticket", function(d){
+															return d["Ticket"];
+															}
+									)
+								.attr("Name", function(d){
+															return d["Name"];
+														}
+									)
+								.attr("Age", function(d){
+															return d["Age"];
+														}
+									)
+								.attr("Sex", function(d){
+															return d["Sex"];
+														}
+									)
+								.attr("Survived", function (d){
+															return d["Survived"];
+														}
+									)
+								.attr("x", function(d){
+															if (d["Age"] >=18){
+																				offset = 0;
+																			}
+															else{
+																offset = 2.5;
+																};
+															if (d["Sex"]==="female"){
+																					if (d["Pclass"]==="1"){
+																											if (female_x_1===9){
+																																female_x_1=29;
+																																female_y_1=female_y_1+11;
+																																return offset+11*female_x_1--;
+																																}
+																											else{
+																												return offset+11*female_x_1-- ;
+																												};
+																											}
+																					else{
+																						if (d["Pclass"]==="2"){
+																												if (female_x_2===9){
+																																	female_x_2=29;
+																																	female_y_2=female_y_2+11;
+																																	return offset+11*female_x_2--;
+																																	}
+																												else{
+																													return offset+11*female_x_2--;
+																													};
+																												}
+																						else{
+																							if (female_x_3===9){
+																												female_x_3=29;
+																												female_y_3=female_y_3+11;
+																												return offset+11*female_x_3--;
+																												}
+																							else {
+																								return offset+11*female_x_3--;
+																								};
+																							};
+																						};
+																					}
+															else{
+																if (d["Pclass"]==="1"){
+																						if (male_x_1===70){
+																											male_x_1=50;
+																											male_y_1=male_y_1+11;
+																											return offset+11*male_x_1++;
+																											}
+																						else{
+																							return offset+11*male_x_1++;
+																							};
+																						}
+																else{
+																	if (d["Pclass"]==="2"){
+																							if (male_x_2===70){
+																												male_x_2=50;
+																												male_y_2=male_y_2+11;
+																												return offset+11*male_x_2++;
+																											}
+																							else{
+																								return offset+11*male_x_2++ ;
+																								};
+																							}
+																	else{
+																		if (male_x_3===70){
+																							male_x_3=50;
+																							male_y_3=male_y_3+11;
+																							return offset+11*male_x_3++;
+																						}
+																		else{
+																			return offset+11*male_x_3++;
+																			};
+																		};
+																	};
+																};
+													}
+									)
+									
+								.attr("y", function(d){
+														if (d["Age"] >=18) {
+																			offset = 0;
+																			}
+														else{
+															offset = 2.5;
+															};
+														if (d["Sex"]==="female"){
+																				if (d["Pclass"]==="1"){
+																										if (female_xx_1===9){
+																															female_xx_1=29;
+																															female_yy_1=female_yy_1+11;
+																															female_xx_1--;
+																															return offset+female_yy_1;
+																															}
+																										else{
+																											female_xx_1--;
+																											return offset+female_yy_1;
+																											};
+																									}
+																				else{
+																					if (d["Pclass"]==="2"){
+																											if (female_xx_2===9){
+																																female_xx_2=29;
+																																female_yy_2=female_yy_2+11;
+																																female_xx_2--;
+																																return offset+female_yy_2;
+																																}
+																											else{
+																												female_xx_2--;
+																												return offset+female_yy_2 ;
+																												}
+																										}
+																					else{
+																						if (female_xx_3===9){
+																											female_xx_3=29;
+																											female_yy_3=female_yy_3+11;
+																											female_xx_3--;
+																											return offset+female_yy_3;
+																											}
+																						else{
+																							female_xx_3--;
+																							return offset+female_yy_3;
+																							};
+																						};
+																					};
+																				}
+														else{
+															if (d["Pclass"]==="1"){
+																					if (male_xx_1===70){
+																										male_xx_1=50;
+																										male_yy_1=male_yy_1+11;
+																										male_xx_1++;
+																										return offset+male_yy_1;
+																									}
+																					else{
+																						male_xx_1++;
+																						return offset+male_yy_1 ;
+																						};
+																				}
+															else{
+																if (d["Pclass"]==="2"){
+																						if (male_xx_2===70){
+																											male_xx_2=50;
+																											male_yy_2=male_yy_2+11;
+																											male_xx_2++;
+																											return offset+male_yy_2;
+																										}
+																						else{
+																							male_xx_2++;
+																							return offset+male_yy_2;
+																							};
+																					}
+																else{
+																	if (male_xx_3===70){
+																						male_xx_3=50;
+																						male_yy_3=male_yy_3+11;
+																						male_xx_3++;
+																						return offset+male_yy_3;
+																						}
+																	else{
+																		male_xx_3++;
+																		return offset+ male_yy_3;
+																		};
+																	};
+																};
+															};
+														}
+									)
+								.attr("fill", function(d){
+															if (d["Survived"] === 0){
+																					return "#8B0000";
+																					}
+															else{
+																return "#6B8E23";
+																};
+														}
+									)
+								.on("mouseenter", function(){
+															if (clicked===1){
+																			}
+															else{
+																d3.selectAll("rect").attr("opacity",0.1);
+																tic=d3.select(this).attr("Ticket");
+																nested[tic].subset.forEach(function(d){
+																										if (+d3.select(".P"+d).attr("Age")>18){
+																																				offset = 0;
+																																				}
+																										else{
+																											offset = 2.5;
+																											};
+																										d3.select(".P"+d).attr("width", 15-2*offset);
+																										d3.select(".P"+d).attr("height", 15-2*offset);
+																										d3.select(".P"+d).attr("opacity", 1.0);
+																										}
+																							)
+																};
+															}
+									)
+								.on("mouseleave", function(){
+															if (clicked===1){
+																			}
+															else{
+																nested[tic].subset.forEach(function(d){
+																										if (+d3.select(".P"+d).attr("Age")>=18){
+																																				offset = 0;
+																																				}
+																										else{
+																											offset = 2.5;
+																											};
+																										d3.select(".P"+d).attr("width", 10-2*offset);
+																										d3.select(".P"+d).attr("height", 10-2*offset);
+																										d3.selectAll("rect").attr("opacity",1.0);
+																									}
+																							);
+																}
+															}
+									)
+								.on("click", function(){
+														var sstt="Selected Passenger: \n";
+														var i = 1;
+														if (clicked===0){
+																		clicked=1;
+																		var poi = d3.select(this).attr("PassengerId");
+																		sstt = sstt + d3.select(this).attr("Name") + " (Age: " + d3.select(this).attr("Age") + "; " + "Gender: " + d3.select(this).attr("Sex") + "; " + "Survived: " + d3.select(this).attr("Survived") +  ")\n";
+																		sstt = sstt + "\n\n" + "Other passengers travelling on the same ticket: \n";
+									
+																		nested[tic].subset.forEach(function(d) {
+																												if (d===poi){
+																															}
+																												else{
+																													sstt= sstt + i++ + ". "+ d3.select(".P"+d).attr("Name") + " (Age: " + d3.select(".P"+d).attr("Age") + "; " + "Gender: " + d3.select(".P"+d).attr("Sex") + "; " + "Survived: " + d3.select(".P"+d).attr("Survived") +  ")\n";
+																													};
+																												}
+																									)
+																		d3.select("textarea").text(sstt);
+																		d3.selectAll("rect").attr("opacity",0.1);
+																		tic=d3.select(this).attr("Ticket");
+																		nested[tic].subset.forEach(function(d) {
+																												if (+d3.select(".P"+d).attr("Age")>18) {
+																																						offset = 0;
+																																						}
+																												else{
+																													offset = 2.5;
+																													};
+																												d3.select(".P"+d).attr("width", 15-2*offset);
+																												d3.select(".P"+d).attr("height", 15-2*offset);
+																												d3.select(".P"+d).attr("opacity", 1.0);
+																												}
+																									)
+																		}
+														else{
+															clicked=0;
+															d3.select("textarea").text('');
+															};
+														}
+									);
+									
+							var line_divider = d3.select("svg").append("line")	
+													.attr("x1", 440)
+													.attr("y1", 0)
+													.attr("x2", 440)
+													.attr("y2", 450)
+													.attr("stroke-width", 2)
+													.attr("stroke", "gray");
+							
+							var text_label_females = d3.select("svg")
+														.append("text")
+														.attr("x", 220)             
+														.attr("y",20)
+														.attr("text-anchor", "middle")  
+														.style("font-size", "16px") 
+														.style("text-decoration", "underline")  
+														.text("Females");
+							var text_label_males = d3.select("svg")
+													.append("text")
+													.attr("x", 660)             
+													.attr("y",20)
+													.attr("text-anchor", "middle")
+													.style("font-size", "16px") 
+													.style("text-decoration", "underline")  
+													.text("Males");
+							var text_label_p1 = d3.select("svg")
+													.append("text")
+													.attr("x", 30)             
+													.attr("y",70)
+													.attr("text-anchor", "middle")  
+													.style("font-size", "16px") 
+													.style("text-decoration", "underline")  
+													.text("1st Class");
+							var text_label_p2 = d3.select("svg")
+													.append("text")
+													.attr("x", 30)             
+													.attr("y",170)
+													.attr("text-anchor", "middle")  
+													.style("font-size", "16px") 
+													.style("text-decoration", "underline")  
+													.text("2nd Class");
+							var text_label_p3 = d3.select("svg")
+													.append("text")
+													.attr("x", 30)             
+													.attr("y",280)
+													.attr("text-anchor", "middle")  
+													.style("font-size", "16px") 
+													.style("text-decoration", "underline")  
+													.text("3rd Class");
+							var legend_green = d3.select("svg")
+													.append("rect")
+													.attr("class", "legend")
+													.attr("width", 10)
+													.attr("height", 10)
+													.attr("x", 870)
+													.attr("y", 50)
+													.attr("opacity", 0.7)
+													.attr("fill", "#6B8E23");
+							var text_label_legend_green = d3.select("svg")
+															.append("text")
+															.attr("x", 885)             
+															.attr("y",60)
+															.attr("text-anchor", "left")  
+															.style("font-size", "16px") 
+															.text("Survived");
+							var legend_red = d3.select("svg")
+												.append("rect")
+												.attr("class", "legend")
+												.attr("width", 10)
+												.attr("height", 10)
+												.attr("x", 870)
+												.attr("y", 80)
+												.attr("opacity", 0.7)
+												.attr("fill", "#8B0000");
+							var text_label_legend_red = d3.select("svg")
+															.append("text")
+															.attr("x", 885)             
+															.attr("y",90)
+															.attr("text-anchor", "left")  
+															.style("font-size", "16px") 
+															.text("Didn't  survive");	
+							var legend_adult = d3.select("svg")
+												.append("rect")
+												.attr("class", "legend")
+												.attr("width", 10)
+												.attr("height", 10)
+												.attr("x", 870)
+												.attr("y", 140)
+												.attr("opacity", 0.7)
+												.attr("fill", "gray");
+							var text_label_adult = d3.select("svg")
+													.append("text")
+													.attr("x", 885)             
+													.attr("y",150)
+													.attr("text-anchor", "left")  
+													.style("font-size", "16px") 
+													.text("Age >18");
+							var legend_minor = d3.select("svg")
+												.append("rect")
+												.attr("class", "legend")
+												.attr("width", 5)
+												.attr("height", 5)
+												.attr("x", 870)
+												.attr("y", 170)
+												.attr("opacity", 0.7)
+												.attr("fill", "gray");
+							var text_label_legend_minor = d3.select("svg")
+															.append("text")
+															.attr("x", 885)             
+															.attr("y",175)
+															.attr("text-anchor", "left")  
+															.style("font-size", "16px") 
+															.text("Age <=18*");										
+							var placeholder_text=d3.select("body").append("div")
+													.attr("style", "text=align:left")
+													.append("div")
+													.attr("id", "custom-area");
+							var help_1 = placeholder_text.append("label")
+															.attr("for", "text");
+										
+							help_1.innerHTML = "Select";				
+														
+							placeholder_text.append("p")
+											.append("textarea") 
+											.attr("id", "text")
+											.attr("cols", 70)
+											.attr("rows", 10);
+										
+									
+									
+							};
+
+      </script>
+  </head>
+<body>
+  <script type="text/javascript">
+
+	d3.csv("titanic_data.csv", function(d){
+											d["Survived"] = +d["Survived"];
+											d["Age"]= +d["Age"];
+											return d;
+										}, draw);
+  </script>
+<h1>Data Visualization - Titanic Data Set - Relationship Explorer</h1>
+
+<p>A data visualization to analyze who survived the titanic. The objective of the visualization is to give the reader an understanding of the key parameters that could have affected the survivability of passengers. The visual is NOT meant to compute percentages. The depiction encourages the reader to explore the relations between the passengers and forces them to think on what factors could have led to different outcomes for similar type of passengers given the information on who was travelling along with them (based on ticket number). After clicking on a passenger, the reader can look at the details on who all were travelling together in the text box below and make assumptions on the relationships between the co-passengers based on their ages, names, and genders. Visual encodings: <br/> </p>
+<p> ★ Each pixel represents a passenger </p>
+<p>★ Color denotes whether a passenger survived or not</p>
+<p>★ Size of the pixel denotes whether a passenger was an adult</p>
+<p>★ Segregation of passengers across genders and passenger class</p>
+<p>★ Hover over the passengers to check who all were travelling on the same ticket (which could mean family or friends)</p>
+<p>★ Click on the passengers to check further details in the text box below. Re-click to reset visual </p>
+
+<p> Data used is a partial list of the passengers travelling on the fateful day on The Titanic. Source: Kaggle</p>
+<p> Visualization inspired from <a href=http://sarahspijkers.com/DataVis.jpg> Sarah Spijkers' Visual </a> </p>
+</body> 
+
+</html>
