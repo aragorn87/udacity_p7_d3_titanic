@@ -32,20 +32,20 @@ Feedback#1:
 >  -  The "clicking on square to reveal more passengers" is not very effective because you can't easily 'return' to a particular data point easily without relying on some guessing. You're almost better off just having a list of the passengers on the screen and colour coding the text to show gender, age and survival status.
 
 Feedback#2:
->What do you notice in the visualization? 
+>  -  What do you notice in the visualization? 
 This is a visualization on who survived on the Titanic, in a block form, with some organization of the blocks based on sex and class of travel. There is also a typo: Sauce
 
->What questions do you have about the data? 
+>  -  What questions do you have about the data? 
 How was the data obtained? Do you have any links to the source data? Why is the passenger list only partial?
 
->What relationships do you notice? 
+>  -  What relationships do you notice? 
 I notice that that the passengers are grouped by class of travel and sex. Age is also represented by a smaller box. Colors are used to indicate if they survived. Also, related tickets are highlighted by hovering over them.
 
 Feedback#3:
->What do you think is the main takeaway from this visualization? 
+>  -  What do you think is the main takeaway from this visualization? 
 The main takeaway is that more females than males survived in each class. For females, livability is directly dependent on class of travel. But, second class males seem to be an exception, i.e. they survived less than males in 3rd class. As a general rule, higher class females have a better chance at survival.
 
-Is there something you don’t understand in the graphic? 
+> -  Is there something you don’t understand in the graphic? 
 The text box that displays details of selected passenger needs to be scrolled down to. Also, how is the name and details of passenger relevant to what you are trying to display? The related tickets also is some information that isn't being used aptly here, in the sense it's not properly represented or easy to access. It's not clear what role relationships play here in who survived(which is the theme of visualization) %age is not represented anywhere/ I can see the role  sex and class of travel on the outcome, but other factors, if important have not been represented.
 
 # Resources
