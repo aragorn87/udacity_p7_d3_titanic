@@ -49,4 +49,6 @@ The main takeaway is that more females than males survived in each class. For fe
 The text box that displays details of selected passenger needs to be scrolled down to. Also, how is the name and details of passenger relevant to what you are trying to display? The related tickets also is some information that isn't being used aptly here, in the sense it's not properly represented or easy to access. It's not clear what role relationships play here in who survived(which is the theme of visualization) %age is not represented anywhere/ I can see the role  sex and class of travel on the outcome, but other factors, if important have not been represented.
 
 # Resources
-The visualization is inspired by Sarah Spijkers' photoshop rendered visualization using the same data set (http://sarahspijkers.com/DataVis.jpg).
+-  The visualization is inspired by Sarah Spijkers' photoshop rendered [visualization](http://sarahspijkers.com/DataVis.jpg) using the same data set
+
+-  Source and description of data: [Kaggle](https://www.kaggle.com/c/titanic/data)
