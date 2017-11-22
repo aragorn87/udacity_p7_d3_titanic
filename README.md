@@ -8,7 +8,11 @@ Part of the mandatory Data Analyst Nanodegree curriculum. A data visualization p
 
 # Summary
 
-The data set has been extensively used by data analysts to build predictive models on the survivability of passengers. The visualization intends to help the reader analyze the distibution of passengers across key variables like gender, age, and passenger class. The interactivty feature around double clicking on passengers travelling together (having the same ticket number) helps the reader identify the relations between the co-travellers (parent-child, spouse, siblings, matrons, etc) and make assumptions on why some people survived and others didn't. The visualization can be veiwed [here](http://bl.ocks.org/aragorn87/raw/03e01fd46d488015ba072fda0476690b/)
+The data set has been extensively used by data analysts to build predictive models on the survivability of passengers. The visualization intends to help the reader analyze the distribution of passengers across key variables like gender, age, and passenger class. The interactivity feature around double clicking on passengers travelling together (having the same ticket number) helps the reader identify the relations between the co-travelers (parent-child, spouse, siblings, matrons, etc.) and make assumptions on why some people survived and others didn't. The visualization can be viewed [here](http://bl.ocks.org/aragorn87/raw/03e01fd46d488015ba072fda0476690b/)
+
+# Key Themes
+
+The visual aids the reader to quickly identify the key criterion which had an implied relation with the chances of survival. Gender and Passenger Class have been clearly demarcated to show that 'females' and first class passengers had higher rates of survival. Also, using the interactivity of the visual, one can build a hypotheses on the chances of survival of passengers if they were traveling in a group. (DISCLAIMER: the data is a subset of the total list of passengers and might not be able to capture the trend appropriately for all passengers. However, this is a prototype to help data modelers build hypotheses basis this important variable.)
 
 # Design
 
@@ -38,22 +42,23 @@ Feedback#1:
 
 Feedback#2:
 >  -  What do you notice in the visualization? 
-This is a visualization on who survived on the Titanic, in a block form, with some organization of the blocks based on sex and class of travel. There is also a typo: Sauce
+>    This is a visualization on who survived on the Titanic, in a block form, with some organization of the blocks based on sex and class of travel. There is also a typo: Sauce
 
 >  -  What questions do you have about the data? 
-How was the data obtained? Do you have any links to the source data? Why is the passenger list only partial?
+>    How was the data obtained? Do you have any links to the source data? Why is the passenger list only partial?
 
 >  -  What relationships do you notice? 
-I notice that that the passengers are grouped by class of travel and sex. Age is also represented by a smaller box. Colors are used to indicate if they survived. Also, related tickets are highlighted by hovering over them.
+>    I notice that that the passengers are grouped by class of travel and sex. Age is also represented by a smaller box. Colors are used to indicate if they survived. Also, related tickets are highlighted by hovering over them.
 
 Feedback#3:
 >  -  What do you think is the main takeaway from this visualization? 
-The main takeaway is that more females than males survived in each class. For females, livability is directly dependent on class of travel. But, second class males seem to be an exception, i.e. they survived less than males in 3rd class. As a general rule, higher class females have a better chance at survival.
+>    The main takeaway is that more females than males survived in each class. For females, livability is directly dependent on class of travel. But, second class males seem to be an exception, i.e. they survived less than males in 3rd class. As a general rule, higher class females have a better chance at survival.
 
 > -  Is there something you don’t understand in the graphic? 
-The text box that displays details of selected passenger needs to be scrolled down to. Also, how is the name and details of passenger relevant to what you are trying to display? The related tickets also is some information that isn't being used aptly here, in the sense it's not properly represented or easy to access. It's not clear what role relationships play here in who survived(which is the theme of visualization) %age is not represented anywhere/ I can see the role  sex and class of travel on the outcome, but other factors, if important have not been represented.
+>   The text box that displays details of selected passenger needs to be scrolled down to. Also, how is the name and details of passenger relevant to what you are trying to display? The related tickets also is some information that isn't being used aptly here, in the sense it's not properly represented or easy to access. It's not clear what role relationships play here in who survived(which is the theme of visualization) %age is not represented anywhere/ I can see the role  sex and class of travel on the outcome, but other factors, if important have not been represented.
 
 # Resources
 -  The visualization is inspired by Sarah Spijkers' photoshop rendered [visualization](http://sarahspijkers.com/DataVis.jpg) using the same data set
 
 -  Source and description of data: [Kaggle](https://www.kaggle.com/c/titanic/data)
+
